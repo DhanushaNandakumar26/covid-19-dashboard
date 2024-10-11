@@ -92,6 +92,7 @@ const CovidMap: React.FC = () => {
               </Marker>
             );
           })}
+          
         </MapContainer>
       </div>
     </Layout>
