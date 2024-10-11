@@ -35,9 +35,7 @@ const CovidChartPage: React.FC = () => {
           labels={chartData.labels}
           data={chartData.data}
           title="COVID-19 Confirmed Cases Over Last 30 Days"
-          content={
-            <p>This chart shows the confirmed cases of COVID-19 over the past 30 days, based on the latest available data.</p>
-          }
+          content={''}
         />
       )}
     </div>

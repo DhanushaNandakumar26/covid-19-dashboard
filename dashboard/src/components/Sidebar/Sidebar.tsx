@@ -21,21 +21,20 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           onClick={toggleSidebar}
         />
       </div>
-
       <nav className="mt-10">
-        <NavLink to='/maps' >
-          <div className="flex items-center p-4 hover:bg-gray-700 transition-colors cursor-pointer">
-            <RiMapPin2Fill className="text-white text-xl" />
-            {isOpen && (
-              <span className="ml-4 text-white transition-all duration-300">Map</span>
-            )}
-          </div>
-        </NavLink>
         <NavLink to='/' >
           <div className="flex items-center p-4 hover:bg-gray-700 transition-colors cursor-pointer">
             <AiOutlineHome className="text-white text-xl" />
             {isOpen && (
               <span className="ml-4 text-white transition-all duration-300">Dashboard</span>
+            )}
+          </div>
+        </NavLink>
+        <NavLink to='/maps' >
+          <div className="flex items-center p-4 hover:bg-gray-700 transition-colors cursor-pointer">
+            <RiMapPin2Fill className="text-white text-xl" />
+            {isOpen && (
+              <span className="ml-4 text-white transition-all duration-300">Map</span>
             )}
           </div>
         </NavLink>

@@ -18,8 +18,8 @@ const Covid19List: React.FC = () => {
   const [itemsPerPage] = useState(10);
   const [selectedStates, setSelectedStates] = useState<any[]>([]); // State for the selected dropdown
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching data</div>;
+  if (isLoading) return <div className="text-white">Loading...</div>;
+  if (error) return <div className="text-white">Error fetching data</div>;
 
   const stateWiseData: StateData[] = data?.statewise ? data.statewise.slice(1) : []; // Skip the first entry
 
@@ -53,10 +53,11 @@ const Covid19List: React.FC = () => {
     setCurrentPage(1);
   };
 
+  // Updated custom styles for the Select component
   const customStyles = {
     control: (provided: any) => ({
       ...provided,
-      backgroundColor: '#1F2937',
+      backgroundColor: '#374151', // Updated to bg-gray-700 equivalent
       color: 'white',
       border: '1px solid #4B5563',
       '&:hover': {
@@ -66,12 +67,12 @@ const Covid19List: React.FC = () => {
     }),
     option: (provided: any, state: any) => ({
       ...provided,
-      backgroundColor: state.isSelected ? '#2563EB' : state.isFocused ? '#374151' : '#1F2937', // Option background colors
+      backgroundColor: state.isSelected ? '#2563EB' : state.isFocused ? '#4B5563' : '#374151', // Updated bg-gray-700 equivalent
       color: 'white',
     }),
     menu: (provided: any) => ({
       ...provided,
-      backgroundColor: '#1F2937',
+      backgroundColor: '#374151', // Updated bg-gray-700 equivalent
     }),
     multiValue: (provided: any) => ({
       ...provided,
@@ -114,7 +115,7 @@ const Covid19List: React.FC = () => {
             classNamePrefix="select"
             placeholder="Select states..."
             noOptionsMessage={() => "No states found"}
-            styles={customStyles}
+            styles={customStyles} // Applied custom styles
           />
         </div>
 
