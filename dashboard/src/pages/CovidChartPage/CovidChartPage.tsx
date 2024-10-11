@@ -1,4 +1,3 @@
-// src/pages/CovidChartPage.tsx
 import AreaChart from '../../components/AreaChart/AreaChart';
 import { useGetTimeSeriesDataQuery } from '../../redux/Slices/CovidApi';
 import React, { useEffect, useState } from 'react';
@@ -15,7 +14,6 @@ const CovidChartPage: React.FC = () => {
       const last30Days = new Date(today);
       last30Days.setDate(today.getDate() - 30);
 
-      // Filter and prepare data
       const filteredData = timeSeriesData.filter((data: any) => {
         const date = new Date(data.date);
         return date >= last30Days && date <= today;

@@ -1,14 +1,13 @@
-// Chicklet.tsx
 import React from 'react';
 
-interface CheckletProps {
+interface ChickletProps {
   count: number;
   label: string;
   bgColor: string;
   icon: React.ReactNode;
 }
 
-const Checklet: React.FC<CheckletProps> = ({ count, label, bgColor, icon }) => {
+const Chicklet: React.FC<ChickletProps> = ({ count, label, bgColor, icon }) => {
   return (
     <div className={`flex flex-col items-center p-4 rounded-lg text-gray-300 ${bgColor}`}>
       <div className="text-3xl">{icon}</div>
@@ -18,4 +17,4 @@ const Checklet: React.FC<CheckletProps> = ({ count, label, bgColor, icon }) => {
   );
 };
 
-export default Checklet;
+export default Chicklet;

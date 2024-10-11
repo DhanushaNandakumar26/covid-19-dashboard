@@ -16,16 +16,9 @@ interface CovidStateData {
 }
 
 const CovidMap: React.FC = () => {
-  const { data, error, isLoading } = useGetTimeSeriesDataQuery({}); // Use the Redux query to fetch data
-
-  const getMarkerColor = (active: number) => {
-    if (active < 1000) return 'green';
-    if (active < 5000) return 'orange';
-    return 'red';
-  };
+  const { data, error, isLoading } = useGetTimeSeriesDataQuery({}); 
 
   const redCovidIcon = (active: number) => {
-    const color = getMarkerColor(active);
     return L.divIcon({
       className: 'custom-icon',
       html: `<div><img src='${LocatioIcon}' style='width: 30px;'/></div>`,
@@ -39,15 +32,13 @@ const CovidMap: React.FC = () => {
   }
 
   if (error) {
-    // Check if error is FetchBaseQueryError
     if ('status' in error) {
-      return <div>Error fetching data: {error.status}</div>; // Display status code
+      return <div>Error fetching data: {error.status}</div>;
     }
-    // Check if error is SerializedError
-    return <div>Error fetching data: {error.message}</div>; // Display message if available
+    return <div>Error fetching data: {error.message}</div>; 
   }
 
-  const covidData: CovidStateData[] = data.statewise.slice(1); // Adjust based on your API response structure
+  const covidData: CovidStateData[] = data.statewise.slice(1); 
 
   return (
     <Layout>

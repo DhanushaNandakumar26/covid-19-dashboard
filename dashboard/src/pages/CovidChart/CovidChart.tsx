@@ -1,6 +1,5 @@
-// src/components/CovidPieChart.tsx
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -12,15 +11,6 @@ import { useGetCovidDataQuery } from '../../redux/Slices/CovidTodayCasesApi';
 import Layout from '../../components/Layout/Layout';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-interface CovidData {
-  cases: number;
-  deaths: number;
-  recovered: number;
-  active: number;
-  todayCases: number; // Today's cases
-  todayDeaths: number; // Today's deaths
-}
 
 const CovidPieChart: React.FC = () => {
   const { data, error, isLoading } = useGetCovidDataQuery(); // Fetch data from Redux Toolkit Query
